@@ -111,4 +111,4 @@ forge test
 - This whole repo was inspired in Cyfrin Upgradeable contracts lessons.
 
 # License
-## MIT
+- MIT
