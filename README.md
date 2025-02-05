@@ -4,11 +4,11 @@ This project demonstrates the use of upgradeable smart contracts on Ethereum (or
 
 # The contracts in this project include:
 
-## BoxV1 (Initial Implementation)
-## BoxV2 (Upgraded Implementation)
-## DeployBox (Script to deploy BoxV1 with Proxy)
-## UpgradeBox (Script to upgrade BoxV1 to BoxV2)
-## DeployAndUpgradeTest (Test contract for deployment and upgrade checks)
+- BoxV1 (Initial Implementation)
+- BoxV2 (Upgraded Implementation)
+- DeployBox (Script to deploy BoxV1 with Proxy)
+-  UpgradeBox (Script to upgrade BoxV1 to BoxV2)
+- DeployAndUpgradeTest (Test contract for deployment and upgrade checks)
 
 ## Technologies Used
 - Solidity: A high-level programming language for writing smart contracts on the Ethereum blockchain.
