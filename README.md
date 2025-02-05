@@ -28,17 +28,21 @@ This project demonstrates the use of upgradeable smart contracts on Ethereum (or
 
 ## 1. DeployBox.sol
 - This script deploys the initial version of the Box contract using a proxy. It uses the ERC1967Proxy to ensure that the Box contract can be upgraded later while keeping the state in the proxy.
-- 
+
 - Key Functions:
-run: Deploys the BoxV1 contract with a proxy and returns the proxy address.
-deployBox: Deploys BoxV1 and wraps it in an ERC1967Proxy. It then calls the initialize() function of the BoxV1 contract to set up initial values.
+- 
+- run: Deploys the BoxV1 contract with a proxy and returns the proxy address.
+
+- deployBox: Deploys BoxV1 and wraps it in an ERC1967Proxy. It then calls the initialize() function of the BoxV1 contract to set up initial values.
 
 ## 2. UpgradeBox.sol
-This script upgrades an existing proxy from BoxV1 to BoxV2.
+- This script upgrades an existing proxy from BoxV1 to BoxV2.
 
 - Functions:
-run: Finds the most recently deployed proxy, deploys BoxV2, and then upgrades the proxy to point to the new implementation.
-upgradeBox: Takes the proxy address and new implementation address as arguments and performs the upgrade by calling upgradeTo() on the proxy.
+- 
+- run: Finds the most recently deployed proxy, deploys BoxV2, and then upgrades the proxy to point to the new implementation.
+- 
+- upgradeBox: Takes the proxy address and new implementation address as arguments and performs the upgrade by calling upgradeTo() on the proxy.
 
 # Source
 
@@ -46,28 +50,35 @@ upgradeBox: Takes the proxy address and new implementation address as arguments 
 - The first version of the Box contract, implementing basic functionality such as storing and retrieving values. It is designed to be upgradeable.
 -
 - Key functions:
-initialize: The initialization function that sets the contract’s owner and initializes UUPS functionality (required for upgradeable contracts).
-getValue: Returns the stored value.
-upgradeTo: Allows the contract owner to upgrade to a new implementation.
-_authorizeUpgrade: Ensures only the contract owner can upgrade to a new implementation.
+- 
+- initialize: The initialization function that sets the contract’s owner and initializes UUPS functionality (required for upgradeable contracts).
+
+- getValue: Returns the stored value.
+
+- upgradeTo: Allows the contract owner to upgrade to a new implementation.
+
+- _authorizeUpgrade: Ensures only the contract owner can upgrade to a new implementation.
 
 
 ## 4. BoxV2.sol
 - The second version of the Box contract that introduces a new function, setValue(), which allows the contract owner to update the stored value. This contract is an upgrade of BoxV1.
 
 - Key functions:
-setValue: Allows setting a new value.
-getValue: Returns the current stored value.
-_authorizeUpgrade: Restricts upgrades to the owner.
+- 
+- setValue: Allows setting a new value.
+
+- getValue: Returns the current stored value.
+
+- _authorizeUpgrade: Restricts upgrades to the owner.
 
 # Tests
 ## 5. DeployAndUpgradeTest.sol
 - A testing contract that uses Foundry’s testing framework to ensure both the deployment and upgrade processes work as expected.
 - 
 - Key Functions:
-testProxyStartsAsBoxV1: Verifies that the proxy initially points to BoxV1.
-testBoxWorks: Tests the initial functionality of BoxV1 by checking the version.
-testUpgradeWorks: Tests the upgrade process from BoxV1 to BoxV2, including value setting.
+- testProxyStartsAsBoxV1: Verifies that the proxy initially points to BoxV1.
+- testBoxWorks: Tests the initial functionality of BoxV1 by checking the version.
+- testUpgradeWorks: Tests the upgrade process from BoxV1 to BoxV2, including value setting.
 
 # Interacting with the Contract:
 
